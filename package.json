@@ -1,0 +1,66 @@
+{
+  "name": "meatorg",
+  "version": "1.0.0",
+  "description": "project for node.js track",
+  "main": "serv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "node_modules/.bin/eslint src/",
+    "start": "node serv.js",
+    "prettier": "prettier --config .prettierrc.json --write src/**/*.js",
+    "lint": ".eslintrc.js",
+    "dev": "nodemon serv.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorimeer/MeatOrg.git"
+  },
+  "precommit": [
+    "pre-commit"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dorimeer/MeatOrg/issues"
+  },
+  "homepage": "https://github.com/dorimeer/MeatOrg#readme",
+  "devDependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "eslint": "^7.16.0",
+    "husky": "^4.3.6",
+    "mongodb": "^3.6.3",
+    "prettier": "^2.2.1",
+    "uuid": "^8.3.2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0",
+    "node-gyp": "^7.1.2",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "rebuild": "^0.1.2",
+    "travis": "^0.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit",
+      "pre-push": "echo 'pushing'"
+    }
+  }
+}

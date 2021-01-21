@@ -1,0 +1,31 @@
+<h2>{{title}}</h2>
+{{#if applications.length}}
+    <ul>
+        {{#each applications}}
+            {{#if this.accepted}}
+            {{else}}
+                <form method="get" action="/applications/{{_id}}">
+                    <li class="application">
+                        <input type="hidden" value="{{_id}}" name="id">
+                        <label>
+                            <span>{{this.title}}</span>
+                        </label>
+                        <label>
+                            <span>{{this.description}}</span>
+                        </label>
+                        <label>
+                            <span>{{this.plannedTime}}</span>
+                        </label>
+                        <input value="Show more..." type="submit" formmethod="get"/>
+                        <form method="post" action="applications/{{id}}">
+                            <input value="Accept" type="submit" formmethod="post">
+                        </form>
+                        <form method="post" action="/applications/{{this._id}}?_method=DELETE">
+                            <input type="submit" name="_method" value="DELETE">
+                        </form>
+                    </li>
+                </form>
+            {{/if}}
+        {{/each}}
+    </ul>
+{{/if}}

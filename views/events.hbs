@@ -1,0 +1,24 @@
+<h2>{{title}}</h2>
+{{#if applications.length}}
+    <ul>
+        {{#each applications}}
+            {{#if this.accepted}}
+                <form method="get" action="/applications/{{_id}}">
+                    <li class="application">
+                        <input type="hidden" value="{{_id}}" name="id">
+                        <label>
+                            <span>{{this.title}}</span>
+                        </label>
+                        <label>
+                            <span>{{this.description}}</span>
+                        </label>
+                        <label>
+                            <span>{{this.time}}</span>
+                        </label>
+                            <input value="Show more" type="submit" formmethod="get"/>
+                    </li>
+                </form>
+            {{/if}}
+        {{/each}}
+    </ul>
+{{/if}}
